@@ -19,20 +19,19 @@ sequenceDiagram
     Note right of browser: Browser updates the UI to reflect the new note
 ```
 
-Explanation:
+## Explanation:
 
-1. The user writes a new note and clicks the Save button in the browser.
+1) The user writes a new note and clicks the Save button in the browser.
 
-2. The browser sends a POST request to the server to create a new note:
+2. The browser sends a POST request to the server to create a new note: <br />
+   `browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note`
 
-browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+4. The server processes the request, activates, and sends back a confirmation message or status code to the browser: <br />
+   `activate server`
+   `server-->>browser: Confirmation message or status code`
+   `deactivate server`
 
-3. The server processes the request, activates, and sends back a confirmation message or status code to the browser:
-   activate server
-   server-->>browser: Confirmation message or status code
-   deactivate server
-
-4. The browser updates the UI to reflect the new note:
-   Note right of browser: Browser updates the UI to reflect the new note
+5. The browser updates the UI to reflect the new note: <br />
+   `Note right of browser: Browser updates the UI to reflect the new note`
 
 This diagram outlines the sequence of events when a user creates a new note on the page. The user input is sent to the server via a POST request, and upon successful processing, the browser updates the UI to display the new note.
