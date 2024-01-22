@@ -8,6 +8,8 @@ function App() {
   const [neutralCount, setNeutralCount] = useState(0)
   const [badCount, setBadCount] = useState(0)
 
+  const allFeedback = goodCount + neutralCount + badCount
+
   const identifyFeedback = (feedback) => {
     if (feedback === 'good') {
       setGoodCount((prevGoodCount) => (prevGoodCount += 1))
@@ -18,6 +20,19 @@ function App() {
     }
   }
 
+  const average = () => {
+    if (allFeedback === 0) {
+      return 0
+    }
+    return ((goodCount - badCount) / allFeedback).toFixed(2)
+  }
+  const positive = () => {
+    if (allFeedback === 0) {
+      return 0
+    }
+    return ((goodCount / allFeedback) * 100).toFixed(2)
+  }
+
   return (
     <>
       <Header title={title} />
@@ -26,6 +41,9 @@ function App() {
         good={goodCount}
         neutral={neutralCount}
         bad={badCount}
+        all={allFeedback}
+        average={average()}
+        positive={positive()}
       />
     </>
   )
