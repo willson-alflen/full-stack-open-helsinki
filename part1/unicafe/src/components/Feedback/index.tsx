@@ -1,12 +1,13 @@
 import React from 'react'
+import Button from '../Button'
 
 export default function Feedback(props) {
   return (
     <section>
       <h2>Give feedback</h2>
-      <button onClick={() => props.handleClick('good')}>good</button>
-      <button onClick={() => props.handleClick('neutral')}>neutral</button>
-      <button onClick={() => props.handleClick('bad')}>bad</button>
+      <Button handleClick={props.handleClick} label="good" />
+      <Button handleClick={props.handleClick} label="neutral" />
+      <Button handleClick={props.handleClick} label="bad" />
     </section>
   )
 }
